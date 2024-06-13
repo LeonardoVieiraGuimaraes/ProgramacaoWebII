@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Combustíveis</title>
+</head>
+<body>
+    <h1>Lista de Combustíveis</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Preço por Litro</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="combustivel : ${combustiveis}">
+                <td th:text="${combustivel.descricao}"></td>
+                <td th:text="${combustivel.preco}"></td>
+                <td th:text="${combustivel.tipo}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
