@@ -1,21 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+  <head>
     <title>Cadastrar Combustível</title>
-</head>
-<body>
-    <h1>Cadastrar Combustível</h1>
-    <form action="/cadastrar" method="post">
-        <label for="descricao">Descrição:</label>
-        <input type="text" id="descricao" name="descricao" required>
-        
-        <label for="preco">Preço por Litro:</label>
-        <input type="number" id="preco" name="preco" step="0.01" required>
-        
-        <label for="tipo">Tipo de Combustível:</label>
-        <input type="text" id="tipo" name="tipo" required>
-        
-        <button type="submit">Salvar</button>
-    </form>
-</body>
+    <!-- Adicionando o CSS do Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Cadastrar Combustível</h1>
+      <form
+        action="/combustivel/salvar"
+        method="post"
+        class="needs-validation"
+        novalidate
+      >
+        <!-- Tipo de Combustível -->
+        <div class="form-group">
+          <label for="tipo">Tipo de Combustível:</label>
+          <select class="form-control" id="tipo" name="tipo" required>
+            <option value="">Selecione</option>
+            <option value="Gasolina">Gasolina</option>
+            <option value="Etanol">Etanol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="GNV">GNV</option>
+          </select>
+        </div>
+
+        <!-- Preço por Litro -->
+        <div class="form-group">
+          <label for="preco">Preço por Litro:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="preco"
+            name="preco"
+            step="0.01"
+            required
+          />
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-group">
+          <label for="descricao">Descrição:</label>
+          <textarea
+            class="form-control"
+            id="descricao"
+            name="descricao"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </form>
+    </div>
+    <!-- Adicionando o JavaScript do Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
 </html>

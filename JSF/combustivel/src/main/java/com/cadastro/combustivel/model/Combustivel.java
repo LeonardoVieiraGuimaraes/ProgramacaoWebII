@@ -1,4 +1,4 @@
-package com.cadastro.combustivel.entity;
+package com.cadastro.combustivel.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.cadastro.combustivel.entity.Combustivel;
+import com.cadastro.combustivel.model.Combustivel;
 import com.cadastro.combustivel.repository.CombustivelRepository;
 
 @Service
@@ -30,5 +30,9 @@ public class CombustivelService {
 
     public void deletarCombustivel(Long id) {
         combustivelRepository.deleteById(id);
+    }
+
+    public boolean existePorId(Long id) {
+        return combustivelRepository.existsById(id);
     }
 }
