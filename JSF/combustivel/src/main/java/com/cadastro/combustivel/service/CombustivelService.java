@@ -20,7 +20,7 @@ public class CombustivelService {
         return combustivelRepository.save(combustivel);
     }
 
-    public List<Combustivel> listarTodos() {
+    public List<Combustivel> buscarTodos() {
         return combustivelRepository.findAll();
     }
 
@@ -34,5 +34,9 @@ public class CombustivelService {
 
     public boolean existePorId(Long id) {
         return combustivelRepository.existsById(id);
+    }
+
+    public List<Combustivel> buscarPorTipo(String tipo) {
+        return combustivelRepository.findByTipo(tipo);
     }
 }

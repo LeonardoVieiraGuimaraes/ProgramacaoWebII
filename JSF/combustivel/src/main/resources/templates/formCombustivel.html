@@ -1,63 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>Cadastrar Combustível</title>
-    <!-- Adicionando o CSS do Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-  </head>
-  <body>
-    <div class="container mt-5">
-      <h1>Cadastrar Combustível</h1>
-      <form
-        action="/combustivel/salvar"
-        method="post"
-        class="needs-validation"
-        novalidate
-      >
-        <!-- Tipo de Combustível -->
-        <div class="form-group">
-          <label for="tipo">Tipo de Combustível:</label>
-          <select class="form-control" id="tipo" name="tipo" required>
-            <option value="">Selecione</option>
-            <option value="Gasolina">Gasolina</option>
-            <option value="Etanol">Etanol</option>
-            <option value="Diesel">Diesel</option>
-            <option value="GNV">GNV</option>
-          </select>
-        </div>
+<head>
+  <title>Cadastrar/Editar Combustível</title>
+  <!-- Adicionando o CSS do Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 th:text="${combustivel.id != null} ? 'Editar Combustível' : 'Cadastrar Combustível'"></h1>
+    <form th:action="@{/combustivel/salvar}" th:object="${combustivel}" method="post" class="needs-validation" novalidate>
+      <input type="hidden" th:field="*{id}"/>
 
-        <!-- Preço por Litro -->
-        <div class="form-group">
-          <label for="preco">Preço por Litro:</label>
-          <input
-            type="number"
-            class="form-control"
-            id="preco"
-            name="preco"
-            step="0.01"
-            required
-          />
-        </div>
+      <!-- Tipo de Combustível -->
+      <div class="form-group">
+        <label for="tipo">Tipo de Combustível:</label>
+        <select class="form-control" id="tipo" th:field="*{tipo}" required>
+          <option value="">Selecione</option>
+          <option value="Gasolina">Gasolina</option>
+          <option value="Etanol">Etanol</option>
+          <option value="Diesel">Diesel</option>
+          <option value="GNV">GNV</option>
+        </select>
+      </div>
 
-        <!-- Descrição -->
-        <div class="form-group">
-          <label for="descricao">Descrição:</label>
-          <textarea
-            class="form-control"
-            id="descricao"
-            name="descricao"
-            rows="3"
-            required
-          ></textarea>
-        </div>
+      <!-- Preço por Litro -->
+      <div class="form-group">
+        <label for="preco">Preço por Litro:</label>
+        <input type="number" class="form-control" id="preco" th:field="*{preco}" step="0.01" required/>
+      </div>
 
-        <button type="submit" class="btn btn-primary">Salvar</button>
-      </form>
-    </div>
-    <!-- Adicionando o JavaScript do Bootstrap -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
+      <!-- Descrição -->
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <textarea class="form-control" id="descricao" th:field="*{descricao}" rows="3" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+  </div>
+  <!-- Adicionando o JavaScript do Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
