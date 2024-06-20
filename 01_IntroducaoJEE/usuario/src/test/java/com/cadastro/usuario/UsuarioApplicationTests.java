@@ -1,10 +1,10 @@
-package com.project.jsf;
+package com.cadastro.usuario;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JsfApplicationTests {
+class UsuarioApplicationTests {
 
 	@Test
 	void contextLoads() {
