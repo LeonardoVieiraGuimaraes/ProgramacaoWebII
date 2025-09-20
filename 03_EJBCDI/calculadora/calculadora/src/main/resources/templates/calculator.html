@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <h2>Calculadora</h2>
+    <form action="#" th:action="@{/calculate}" method="post">
+        <input type="text" name="display" th:value="${display}" readonly="readonly" style="width: 200px; text-align: right;"/>
+        <br/><br/>
+        <table>
+            <tr>
+                <td><button type="submit" name="digit" value="7">7</button></td>
+                <td><button type="submit" name="digit" value="8">8</button></td>
+                <td><button type="submit" name="digit" value="9">9</button></td>
+                <td><button type="submit" name="operation" value="/">/</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="digit" value="4">4</button></td>
+                <td><button type="submit" name="digit" value="5">5</button></td>
+                <td><button type="submit" name="digit" value="6">6</button></td>
+                <td><button type="submit" name="operation" value="*">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="digit" value="1">1</button></td>
+                <td><button type="submit" name="digit" value="2">2</button></td>
+                <td><button type="submit" name="digit" value="3">3</button></td>
+                <td><button type="submit" name="operation" value="-">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" name="digit" value="0">0</button></td>
+                <td><button type="submit" name="decimal" value=".">.</button></td>
+                <td><button type="submit" name="equals" value="=">=</button></td>
+                <td><button type="submit" name="operation" value="+">+</button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
