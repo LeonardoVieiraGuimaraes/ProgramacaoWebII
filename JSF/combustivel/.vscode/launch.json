@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-CombustivelApplication<combustivel>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.cadastro.combustivel.CombustivelApplication",
+            "projectName": "combustivel",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

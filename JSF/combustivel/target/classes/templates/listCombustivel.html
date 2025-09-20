@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Lista de Combustíveis</title>
+    <!-- Adicionando o CSS do Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="d-flex justify-content-between">
+        <form action="/combustivel/listar" method="get" class="form-inline">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Pesquisar"
+            aria-label="Pesquisar"
+            name="tipo"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Pesquisar
+          </button>
+        </form>
+        <a href="/combustivel/cadastrar" class="btn btn-primary my-2"
+          >Novo Combustível</a
+        >
+      </div>
+      <h1>Lista de Combustíveis</h1>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Descrição</th>
+            <th>Preço por Litro</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="combustivel : ${combustiveis}">
+            <td th:text="${combustivel.descricao}"></td>
+            <td th:text="${combustivel.preco}"></td>
+            <td th:text="${combustivel.tipo}"></td>
+            <td>
+              <!-- Botão Atualizar -->
+              <a
+                th:href="@{/combustivel/editar/{id}(id=${combustivel.id})}"
+                class="btn btn-primary btn-sm"
+                >Atualizar</a
+              >
+              <!-- Botão Deletar -->
+              <a
+                th:href="@{/combustivel/deletar/{id}(id=${combustivel.id})}"
+                class="btn btn-danger btn-sm"
+                >Deletar</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Adicionando o JavaScript do Bootstrap -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

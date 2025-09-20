@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Funcionários</title>
+</head>
+<body>
+    <a th:href="@{/funcionarios/formulario}" class="btn btn-primary">Novo</a>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Salário</th>
+            <!-- Adicione mais colunas conforme necessário -->
+        </tr>
+        <tr th:each="funcionario : ${funcionarios}">
+            <td th:text="${funcionario.nome}"></td>
+            <td th:text="${funcionario.salario}"></td>
+            <!-- Adicione mais células conforme necessário -->
+        </tr>
+    </table>
+</body>
